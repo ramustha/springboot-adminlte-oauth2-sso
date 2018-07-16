@@ -41,11 +41,11 @@ Get Resources
 $ curl -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzE3MjI3NjgsInVzZXJfbmFtZSI6InJlYWRlciIsImF1dGhvcml0aWVzIjpbIm5ld3NfcmVhZCJdLCJqdGkiOiI3MWU3NDg4NS04ZTM1LTRlODktOWE3NS03ODUyOTgxYzk3YmQiLCJjbGllbnRfaWQiOiJuZXdzIiwic2NvcGUiOlsibmV3cyJdfQ.Q7Fh0rYSQCCjSzQ9LSXg__o6tKCgFdB-KERHLbKIuUW55lwedoUPjSnUz7zehNMm0Ayjbe2HmdDh9n0_eJFjwCTxqe1wIUXIJV-Od7IDKR2bYSMZXAv7YZrS1OsBbarskuwXHPAW7Jrx2zS3Ym8VYj3ihOI7LahULcjNbNWVaxcMHofD6lyYeBkpC5b_AMiSFJymvo2fqonQjwkwpm-nqAwrSYeaifseA8zX9969VCkoScOGf9p6IdeqNlsvwh1u6rn_3VedH8ayEDK22Y4z88bBRtCwZ6vEEr7bOXIhPBHwojOdE0Jj40epBXAbx939vYE5rGAuf3gXFM4JCyE-jQ' localhost:7777/api/latest
 ```
 
-How Does it Work?
-``` console
+### How Does it Work?
+
 * Create database news_demo port
 * mvn spring-boot:run
-```
+
 
 |Path                         | Description
 | --------------------------- | ---------------------
