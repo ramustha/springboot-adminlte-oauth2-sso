@@ -1,0 +1,13 @@
+/*!
+ * Copyright (c) 2018 Ramustha Studio All Rights Reserved.
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
+ * Proprietary and confidential.
+ */
+
+---
+---
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+{% for icon in icons %}{% for alias in icon.aliases %}
+.#{$fa-css-prefix}-{{ alias }}:before,{% endfor %}
+.#{$fa-css-prefix}-{{ icon.id }}:before { content: $fa-var-{{ icon.id }}; }{% endfor %}

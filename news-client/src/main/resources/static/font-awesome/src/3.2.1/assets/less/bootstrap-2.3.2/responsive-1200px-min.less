@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) 2018 Ramustha Studio All Rights Reserved.
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
+ * Proprietary and confidential.
+ */
+
+//
+// Responsive: Large desktop and up
+// --------------------------------------------------
+
+
+@media (min-width: 1200px) {
+
+  // Fixed grid
+  #grid > .core(@gridColumnWidth1200, @gridGutterWidth1200);
+
+  // Fluid grid
+  #grid > .fluid(@fluidGridColumnWidth1200, @fluidGridGutterWidth1200);
+
+  // Input grid
+  #grid > .input(@gridColumnWidth1200, @gridGutterWidth1200);
+
+  // Thumbnails
+  .thumbnails {
+    margin-left: -@gridGutterWidth1200;
+  }
+  .thumbnails > li {
+    margin-left: @gridGutterWidth1200;
+  }
+  .row-fluid .thumbnails {
+    margin-left: 0;
+  }
+
+}

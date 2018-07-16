@@ -1,0 +1,39 @@
+/*
+ * Copyright (c) 2018 Ramustha Studio All Rights Reserved.
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
+ * Proprietary and confidential.
+ */
+
+.fontawesome-icon-list {
+  margin-top: 22px;
+  .fa-hover {
+    a {
+      .text-ellipsis;
+      display: block;
+      color: @gray-darker;
+      line-height: 32px;
+      height: 32px;
+      padding-left: 10px;
+      border-radius: @border-radius-base;
+
+      .fa {
+        width: 32px;
+        font-size: 14px;
+        display: inline-block;
+        text-align: right;
+        margin-right: 10px;
+      }
+
+      &:hover {
+        background-color: @fa-green;
+        color: @jumbotron-color;
+        text-decoration: none;
+        .fa {
+          font-size: 28px;
+          vertical-align: -6px;
+        }
+        .text-muted { color: mix(@jumbotron-color, @fa-green, 70%); }
+      }
+    }
+  }
+}

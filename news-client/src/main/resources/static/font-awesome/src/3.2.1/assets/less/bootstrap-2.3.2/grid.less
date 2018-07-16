@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) 2018 Ramustha Studio All Rights Reserved.
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
+ * Proprietary and confidential.
+ */
+
+//
+// Grid system
+// --------------------------------------------------
+
+
+// Fixed (940px)
+#grid > .core(@gridColumnWidth, @gridGutterWidth);
+
+// Fluid (940px)
+#grid > .fluid(@fluidGridColumnWidth, @fluidGridGutterWidth);
+
+// Reset utility classes due to specificity
+[class*="span"].hide,
+.row-fluid [class*="span"].hide {
+  display: none;
+}
+
+[class*="span"].pull-right,
+.row-fluid [class*="span"].pull-right {
+  float: right;
+}

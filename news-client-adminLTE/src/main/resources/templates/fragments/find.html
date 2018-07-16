@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2018 Ramustha Studio All Rights Reserved.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  ~ Proprietary and confidential.
+  -->
+
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="${path}">
+<head>
+  <title th:text="${title}"></title>
+</head>
+<body>
+
+<div layout:fragment="sidebar"></div>
+<div layout:fragment="content-header"></div>
+
+<div layout:fragment="content">
+
+  <div layout:fragment="find-box"></div>
+
+  <div class="box" th:if="${not #lists.isEmpty(newsList)}">
+    <div class="box-body no-padding">
+      <table class="table table-striped">
+        <tr>
+          <th>Channel</th>
+          <th>Description</th>
+          <th>Title</th>
+          <th>Publish</th>
+          <th></th>
+        </tr>
+        <tr th:each="news,iterationStatus : ${newsList}">
+          <td th:text="${news.channelName}">Channel Name</td>
+          <td th:text="${news.channelTitle}">Description</td>
+          <td th:text="${news.title}">Title</td>
+          <td th:text="${news.pubDate}">Publish</td>
+          <td>
+            <a th:href="${ '/news/' + news.id}" class="btn btn-success btn-xs">View</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="box-footer clearfix">
+      <div class="box-footer pull-left">
+        <p>Showing <span class="badge"
+                         th:text="${page.size * (page.number-1) + 1}"></span>
+          of <span class="badge"
+                   th:text="${page.lastPage ? page.totalElements : page.size * (page.number-1)+ page.size}"></span>
+          / <span class="badge"
+                  th:text="${page.totalElements}"></span>
+          News
+        </p>
+      </div>
+
+      <div class="box-footer  pull-right">
+        <ul class="pagination pagination-sm no-margin">
+          <li th:class="${page.firstPage}?'disabled':''">
+            <span th:if='${page.firstPage}'>← First</span>
+            <a th:if='${not page.firstPage}' th:href='@{${page.url}(page=0,size=${page.size})}'>←
+              First</a>
+          </li>
+          <li th:class="${page.hasPreviousPage}? '' : 'disabled'">
+            <span th:if='${not page.hasPreviousPage}'>«</span>
+            <a th:if='${page.hasPreviousPage}'
+               th:href='@{${page.url}(page=${page.number-2},size=${page.size})}'
+               title='Go to previous page'>«</a>
+          </li>
+          <li th:each='item : ${page.items}' th:class="${item.current}? 'active' : ''">
+            <span th:if='${item.current}' th:text='${item.number}'>1</span>
+            <a th:if='${not item.current}'
+               th:href='@{${page.url}(page=${item.number-1},size=${page.size})}'><span
+                th:text='${item.number}'>1</span></a>
+          </li>
+          <li th:class="${page.hasNextPage}? '' : 'disabled'">
+            <span th:if='${not page.hasNextPage}'>»</span>
+            <a th:if='${page.hasNextPage}'
+               th:href='@{${page.url}(page=${page.number},size=${page.size})}'
+               title='Go to next page'>»</a>
+          </li>
+          <li th:class="${page.lastPage}? 'disabled' : ''">
+            <span th:if='${page.lastPage}'>Last →</span>
+            <a th:if='${not page.lastPage}'
+               th:href='@{${page.url}(page=${page.totalPages - 1},size=${page.size})}'>Last
+              →</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <form class="form-horizontal" th:action="@{${page.url}}" method="get">
+          <div class="form-group">
+            <div class="col-sm-1">
+              <select class="form-control" th:field="*{page.size}">
+                <option th:each="n : ${#numbers.sequence(1, 20)}"
+                        th:selected="${page.size}"
+                        th:value="${n}" th:text="${n}">
+                </option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-success">Send</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

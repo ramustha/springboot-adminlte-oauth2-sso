@@ -1,0 +1,24 @@
+# keytool -list -rfc --keystore src/main/resources/jwt.jks | openssl x509 -inform pem -pubkey
+
+server:
+  port: 9999
+  context-path: /auth
+security:
+  oauth2:
+    authorization:
+      token-key-access: permitAll()
+      check-token-access: isAuthenticated()
+    client:
+      client-id: news
+      client-secret: news_secret
+logging:
+  level:
+    org.springframework.security: DEBUG
+spring:
+  thymeleaf:
+    cache: false
+    check-template-location: true
+    prefix: file:./src/main/resources/templates/
+  session:
+    store-type: none
+

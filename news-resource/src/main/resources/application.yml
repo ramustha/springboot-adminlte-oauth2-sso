@@ -1,0 +1,22 @@
+
+server:
+  port: 7777
+  context-path: /api
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-uri: ${auth-server:http://localhost:9999/auth}/oauth/token_key
+spring:
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+  datasource:
+    url: jdbc:postgresql://localhost:5432/news_demo
+    username: postgres
+    password: postgres
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+  profiles:
+    active: dev

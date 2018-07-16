@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2018 Ramustha Studio All Rights Reserved.
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
+ * Proprietary and confidential.
+ */
+
+// Responsive utilities
+
+//
+// More easily include all the states for responsive-utilities.less.
+.responsive-visibility() {
+  display: block !important;
+  table&  { display: table !important; }
+  tr&     { display: table-row !important; }
+  th&,
+  td&     { display: table-cell !important; }
+}
+
+.responsive-invisibility() {
+  display: none !important;
+}

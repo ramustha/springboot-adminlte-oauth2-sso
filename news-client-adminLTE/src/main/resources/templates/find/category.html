@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2018 Ramustha Studio All Rights Reserved.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  ~ Proprietary and confidential.
+  -->
+
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="base">
+<body>
+
+<div layout:fragment="sidebar">
+  <ul class="sidebar-menu">
+    <li class="header">MAIN NAVIGATION</li>
+    <li class="treeview">
+      <a href="/">
+        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+      </a>
+    </li>
+    <li class="treeview active">
+      <a href="#">
+        <i class="fa fa-folder"></i>
+        <span>News</span>
+        <i class="fa fa-angle-left pull-right"></i>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="/news/features"><i class="fa fa-table"></i> Features</a></li>
+        <li><a href="/news/latest"><i class="fa fa-table"></i> Latest</a></li>
+        <li><a href="/news/find"><i class="fa fa-table"></i> Find</a></li>
+        <li class="active"><a href="/news/find/category"><i class="fa fa-table"></i> Category</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<section layout:fragment="content-header">
+  <h1>Find Category</h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-folder"></i> News</a></li>
+    <li><a href="/news/Find"><i class="fa fa-table"></i> Find</a></li>
+    <li class="active"><a href="/news/Find/Category"><i class="fa fa-table"></i> Category</a></li>
+  </ol>
+</section>
+
+<div layout:fragment="find-box">
+  <form class="form-horizontal" th:object="${find}" th:action="@{/news/find/category}" method="get">
+    <div class="form-group">
+      <div class="col-sm-2">
+        <input type="text" required="true" class="form-control" th:field="*{q}"/>
+      </div>
+      <button type="submit" class="btn btn-success">Send</button>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

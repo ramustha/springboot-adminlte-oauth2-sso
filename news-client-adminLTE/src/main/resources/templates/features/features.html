@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2018 Ramustha Studio All Rights Reserved.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  ~ Proprietary and confidential.
+  -->
+
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="base">
+<body>
+
+<div layout:fragment="sidebar">
+  <ul class="sidebar-menu">
+    <li class="header">MAIN NAVIGATION</li>
+    <li class="treeview">
+      <a href="/">
+        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+      </a>
+    </li>
+    <li class="treeview active">
+      <a href="#">
+        <i class="fa fa-folder"></i>
+        <span>News</span>
+        <i class="fa fa-angle-left pull-right"></i>
+      </a>
+      <ul class="treeview-menu">
+        <li class="active"><a href="/news/features"><i class="fa fa-table"></i> Features</a></li>
+        <li><a href="/news/latest"><i class="fa fa-table"></i> Latest</a></li>
+        <li><a href="/news/find"><i class="fa fa-table"></i> Find</a></li>
+        <li><a href="/news/find/category"><i class="fa fa-table"></i> Category</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<section layout:fragment="content-header">
+  <h1>Features List</h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-folder"></i> News</a></li>
+    <li class="active"><a href="/news/features"><i class="fa fa-table"></i> Features</a></li>
+  </ol>
+</section>
+
+</body>
+</html>

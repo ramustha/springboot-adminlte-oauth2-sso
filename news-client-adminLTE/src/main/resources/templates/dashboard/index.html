@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2018 Ramustha Studio All Rights Reserved.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  ~ Proprietary and confidential.
+  -->
+
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="base">
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+
+<div layout:fragment="sidebar">
+  <section class="sidebar">
+    <ul class="sidebar-menu">
+      <li class="header">MAIN NAVIGATION</li>
+      <li class="treeview active">
+        <a href="/">
+          <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-folder"></i>
+          <span>News</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/news/features"><i class="fa fa-table"></i> Features</a></li>
+          <li><a href="/news/latest"><i class="fa fa-table"></i> Latest</a></li>
+          <li><a href="/news/find"><i class="fa fa-table"></i> Find</a></li>
+          <li><a href="/news/find/category"><i class="fa fa-table"></i> Category</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</div>
+
+<section layout:fragment="content-header">
+  <h1>
+    SpringAdminLTE Documentation
+    <small>Current version 2.3.0</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li class="active"><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+  </ol>
+</section>
+
+<div layout:fragment="content">
+  <section class="content">
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">News</span>
+            <span class="info-box-number" th:text="${newsCount}">0</span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <!-- /.col -->
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Channels</span>
+            <span class="info-box-number" th:text="${channels.totalElements}">0</span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <!-- /.col -->
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-yellow"><i class="fa fa-files-o"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Categories</span>
+            <span class="info-box-number" th:text="${categories.totalElements}">0</span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <!-- /.col -->
+
+      <div class="col-md-6">
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Channels</h3>
+          </div>
+          <div class="box-body">
+            <table class="table table-bordered">
+              <tr>
+                <th>Name</th>
+                <th>Publish</th>
+                <th style="width: 40px"></th>
+              </tr>
+              <tr th:each="ch : ${channels}">
+                <td th:text="${ch.channelTitle}">Name</td>
+                <td th:text="${ch.pubDate}">Publish</td>
+                <td><span class="badge bg-green" th:text="${ch.count}">0%</span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Categories</h3>
+          </div>
+          <div class="box-body">
+            <table class="table table-bordered">
+              <tr>
+                <th>Name</th>
+                <th style="width: 40px"></th>
+              </tr>
+              <tr th:each="cat : ${categories}">
+                <td th:text="${cat.category}">Name</td>
+                <td><span class="badge bg-light-blue" th:text="${cat.count}">0%</span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

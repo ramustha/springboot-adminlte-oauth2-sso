@@ -1,0 +1,38 @@
+res-server: ${news.url:http://localhost:7777}/api
+auth-server: http://localhost:9999/auth
+logout-path: ${auth-server}/logout
+
+server:
+  port: 8080
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      client-id: news
+      client-secret: news_secret
+      access-token-uri: ${auth-server}/oauth/token
+      user-authorization-uri: ${auth-server}/oauth/authorize
+      scope: news
+      authorities: news_write, news_read
+    resource:
+      jwt:
+        key-uri: ${auth-server}/oauth/token_key
+logging:
+  level:
+    org.springframework.security: DEBUG
+spring:
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+  profiles:
+    active: dev
+  devtools:
+    livereload:
+      enabled: true
+      port: 35730
+  thymeleaf:
+    cache: false
+    check-template-location: true
+    prefix: file:./src/main/resources/templates/
+  session:
+    store-type: none

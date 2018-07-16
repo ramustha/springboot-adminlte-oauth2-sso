@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2018 Ramustha Studio All Rights Reserved.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  ~ Proprietary and confidential.
+  -->
+
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="base">
+<head>
+  <title>Detail News</title>
+</head>
+<body>
+
+<div layout:fragment="sidebar">
+  <ul class="sidebar-menu">
+    <li class="treeview">
+      <a href="/">
+        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+      </a>
+    </li>
+    <li class="active">
+      <a href="#">
+        <i class="fa fa-folder"></i>
+        <span>News</span>
+        <i class="fa fa-angle-left pull-right"></i>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="/news/features"><i class="fa fa-table"></i> Features</a></li>
+        <li><a href="/news/latest"><i class="fa fa-table"></i> Latest</a></li>
+        <li><a href="/news/find"><i class="fa fa-table"></i> Find</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<section layout:fragment="content-header">
+  <h1>Detail</h1>
+  <ol class="breadcrumb">
+    <li><i class="fa fa-folder"></i> News</li>
+    <li><a href="#">Details</a></li>
+  </ol>
+</section>
+
+<div layout:fragment="content">
+  <div class="box">
+    <div class="box-header with-border">
+      <div class="box-tools pull-right">
+        <a href="#" type="button" class="btn btn-box-tool"><i class="fa fa-list-ul"></i></a>
+      </div>
+    </div>
+    <form data-toggle="validator" role="form">
+      <div class="box-body">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">News Id:</label>
+          <div class="col-sm-10">
+            <p class="form-control-static" th:text="${news.id}">News Id</p></div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Title:</label>
+          <div class="col-sm-10">
+            <p class="form-control-static" th:text="${news.title}">Title</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Pub Date:</label>
+          <div class="col-sm-10">
+            <p class="form-control-static" th:text="${news.pubDate}">Publish</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Source:</label>
+          <div class="col-sm-10">
+            <p class="form-control-static" th:text="${news.link}">Source</p>
+          </div>
+        </div>
+        <div class="form-group" th:if="${news.fullContent != null}">
+          <label class="col-sm-2 control-label">Content:</label>
+          <div class="col-sm-10">
+            <p class="form-control-static" th:utext="${news.fullContent}">Content</p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <button onclick='window.history.back()' type="submit" class="btn btn-success"> Back
+    </button>
+  </div>
+
+</div>
+
+</body>
+</html>

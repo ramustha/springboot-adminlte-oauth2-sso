@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) 2018 Ramustha Studio All Rights Reserved.
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
+ * Proprietary and confidential.
+ */
+
+
+
+table.KeyTable th.focus,
+table.KeyTable td.focus {
+	outline: 3px solid #3366FF;
+	outline-offset: -3px;
+}
