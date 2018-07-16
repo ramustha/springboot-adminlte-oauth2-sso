@@ -54,3 +54,8 @@ How Does it Work?
 | http://localhost:8080/      | UI
 | http://localhost:8081/      | UI (Admin LTE) 
 
+
+![image](https://github.com/ramustha/spring-adminlte-oauth2-sso/blob/master/ss/ss1.png?raw=true)
+![image](https://github.com/ramustha/spring-adminlte-oauth2-sso/blob/master/ss/ss2.png?raw=true)
+![image](https://github.com/ramustha/spring-adminlte-oauth2-sso/blob/master/ss/ss3.png?raw=true)
+![image](https://github.com/ramustha/spring-adminlte-oauth2-sso/blob/master/ss/ss4.png?raw=true)
