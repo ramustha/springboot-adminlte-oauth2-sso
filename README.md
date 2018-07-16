@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Spring Boot + Admin LTE + Spring Security OAuth2 
 
 This demo app consists of following three components:
@@ -54,3 +55,7 @@ How Does it Work?
 | http://localhost:8080/ | UI
 | http://localhost:8081/ | UI (Admin LTE) 
 |===
+=======
+# spring-adminlte-oauth2-sso
+Demo Spring-boot + Admin LTE + Oauth2 Sso
+>>>>>>> bc6aea08b30956ae99bdf7e872f8d5a5cb14e639
