@@ -47,10 +47,10 @@ How Does it Work?
 * mvn spring-boot:run
 ```
 
-|===
-|Path | Description
-| http://localhost:9999/auth | Authorization Server
-| http://localhost:7777/api | Resource Server
-| http://localhost:8080/ | UI
-| http://localhost:8081/ | UI (Admin LTE) 
-|===
+|Path                         | Description
+| --------------------------- | ---------------------
+| http://localhost:9999/auth  | Authorization Server
+| http://localhost:7777/api   | Resource Server
+| http://localhost:8080/      | UI
+| http://localhost:8081/      | UI (Admin LTE) 
+
